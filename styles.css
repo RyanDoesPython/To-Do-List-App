@@ -4,10 +4,12 @@
     :root {
       --text: rgb(20, 11, 30);
       --background: #f8f5fa;
-      --primary: #844bb9;
+      --primary: rgb(132, 75, 185);
       --secondary: #d99bd1;
       --accent: #ca72ad;
       --border: rgb(40, 22, 60);
+      --dark-border: rgb(20, 20, 20);
+
       --linearPrimarySecondary: linear-gradient(45deg, #7f46b4, #64265c);
     }
   }
@@ -21,6 +23,7 @@
       --secondary: #64265c;
       --accent: #8d356f;
       --border: rgb(70, 60, 75);
+      --dark-border: rgb(20, 15, 20);
       --linearPrimarySecondary: linear-gradient(45deg, #7f46b4, #64265c);
     }
   }
@@ -92,4 +95,57 @@ input::placeholder{
 }
 .add-btn:hover{
     background-color: var(--accent);
+}
+.tasks-container{
+    max-width: 40vw;
+    height: 60vh;
+    overflow-y: scroll;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+::-webkit-scrollbar-track {
+    background: green;
+  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+.task{
+    max-width: 40vw;
+    height: 7vh; 
+    margin: 8px auto 0 auto;
+    display: flex;
+    background-color: var(--dark-border);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.circle{
+    aspect-ratio: 1 / 1;
+    width: 30px;
+    border: var(--border) 3px solid;
+    background-color: transparent;
+    border-radius: 100%;
+    display: flex;
+}
+.check{
+    background-color: transparent;
+    border: none;
+    fill: transparent;
+    fill-rule: evenodd;
+}
+.task-text{
+    width: 80%;
+    color: var(--text);
+    font-family: 'Segoe UI';
+    font-weight: 400;
+}
+.delete{
+    background-color: transparent;
+    border: none;
+    fill: var(--border);
+    fill-rule: evenodd;
+}
+.delete:hover{
+    fill: var(--accent);
 }
