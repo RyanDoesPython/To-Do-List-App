@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu%20Mono:700|Ubuntu%20Mono:400');
+
+@media (prefers-color-scheme: light) {
+    :root {
+      --text: rgb(20, 11, 30);
+      --background: #f8f5fa;
+      --primary: #844bb9;
+      --secondary: #d99bd1;
+      --accent: #ca72ad;
+      --border: rgb(40, 22, 60);
+      --linearPrimarySecondary: linear-gradient(45deg, #7f46b4, #64265c);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #eae1f4;
+      --placeholder-text: rgb(82, 72, 84);
+      --input-text: rgb(161, 140, 164);
+      --background: #08050a;
+      --primary: #7f46b4;
+      --secondary: #64265c;
+      --accent: #8d356f;
+      --border: rgb(70, 60, 75);
+      --linearPrimarySecondary: linear-gradient(45deg, #7f46b4, #64265c);
+    }
+  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*:focus{
+    border: none;
+    outline: none
+}
+html {
+    font-size: 100%; /* 16px */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    font-weight: 400;
+    background-color: var(--background);
+}
+h1, h2 {
+    font-weight: 800;
+    letter-spacing: -3px;
+  }
+  
+h1{
+    width: 330px;
+    background: var(--linearPrimarySecondary);
+    background-clip: text;
+    color: transparent;
+    font-size: 4rem; /* 67.36px */
+    margin: 40px auto 15px auto;
+}
+h2 {
+    font-size: 3.158rem; /* 50.56px */
+}
+.input-container{
+    max-width: 40vw;
+    height: 7vh;
+    margin: 0 auto;
+    display: flex;
+    border: var(--border) 3px solid;
+    border-radius: 30px;
+}
+.task-input{
+    width: 85%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: transparent;
+    border: none;
+    color: var(--input-text);
+    margin-left: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+input::placeholder{
+    margin: 0 100px 0 0;
+    color: var(--placeholder-text);
+}
+.add-btn{
+    background-color: var(--primary);
+    width: 15%;
+    border: none;
+    border-radius: 30px;
+    transition: 150ms ease;
+    font-family: Tahoma;
+    font-weight: 700;
+    color: var(--button-text)
+}
+.add-btn:hover{
+    background-color: var(--accent);
+}
