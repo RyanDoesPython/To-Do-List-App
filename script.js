@@ -1,9 +1,24 @@
 const inputText = document.getElementById("task-input");
 const addBtn = document.getElementById("add-btn");
 const tasksContainer = document.getElementById("tasks-container");
+const checkMark = document.getElementById("check-mark");
 
+// class="strikeout"
+
+const check = (buttonEl, isSelected = false) => {
+        isSelected = !isSelected;
+        const svg = buttonEl.querySelector("svg");
+        const strikeout = buttonEl.parentElement.querySelector("hr");
+        const text = buttonEl.parentElement.querySelector("p");
+        text.style.color = "rgb(40, 40, 40)";
+        strikeout.style.display = "block"; 
+        svg.style.fill =  "rgb(132, 75, 185)";
+    console.log(isSelected)
+    
+}
 const deleteTask = (buttonEl) => {
-    this.innerHTML = "";
+    const parent = buttonEl.parentElement;
+    parent.remove()
 }
 
 const addTask = () => {
@@ -12,8 +27,9 @@ const addTask = () => {
         alert("Please input a task")
     }else{
         tasksContainer.innerHTML += `
-        <div class="task">
-                <button type="button" class="check">
+            <div class="task">
+                <hr class="strikeout hiding" id="strikeout">
+                <button onclick="check(this)" type="button" class="check">
                     <div class="circle">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
                     </div>
@@ -27,11 +43,11 @@ const addTask = () => {
 
         inputText.value = "";
     }
-    const result = document.createElement("div");
-    result.textContent = `Valid US number: ${input}`;
-    result.id = "results-div";  
-    result.className = "number correct"; 
-    resultsContainer.appendChild(result);
 }
 
 addBtn.addEventListener("click", addTask);
+inputText.addEventListener("keydown", (event) =>{
+    if(event.key === "Enter"){
+        addTask()
+    }
+})
